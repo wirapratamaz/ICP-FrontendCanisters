@@ -30,6 +30,8 @@ const Contact = () => {
       document.getElementById("newEntryEmail").value = entry.email;
       document.getElementById("newEntryPhone").value = entry.phone.toString();
     });
+
+    this.setState({ name: '', add1: '', add2: ''})
   }
 
   return (
