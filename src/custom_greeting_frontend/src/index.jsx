@@ -1,19 +1,19 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { custom_greeting_backend } from "../../declarations/custom_greeting_backend";
+import { custom_greeting_backend } from "../../declarations/custom_greeting_backend/index.js";
 
 const MyHello = () => {
-  const [name, setName] = React.useState("");
-  const [greeting, setGreeting] = React.useState("");
+  const [name, setName] = React.useState('');
+  const [message, setMessage] = React.useState('');
 
-  async function doGreet (){
+  async function doGreet() {
     const greeting = await custom_greeting_backend.greet(name);
-    setGreeting(greeting);
+    setMessage(greeting);
   }
 
   return (
-    <div style={{ "fontSize": "30px" }}>
-      <div style={{ "backgroundColor": "yellow" }}>
+    <div style={{ "fontFamily": "sans-serif" }}>
+      <div style={{ "fontSize": "30px" }}>
         <p>Greetings, from DFINITY!</p>
         <p>
           {" "}
@@ -24,6 +24,7 @@ const MyHello = () => {
       <div style={{ margin: "30px" }}>
         <input
           id="name"
+          placeholder="Type text here"
           value={name}
           onChange={(ev) => setName(ev.target.value)}
         ></input>
@@ -31,7 +32,7 @@ const MyHello = () => {
       </div>
       <div>
         Greeting is: "
-        <span style={{ color: "blue" }}>{message}</span>"
+        <span style={{ color: "green" }}>{message}</span>"
       </div>
     </div>
   );
